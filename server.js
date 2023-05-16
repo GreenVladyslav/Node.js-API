@@ -31,7 +31,8 @@ app.listen(process.env.PORT, (error) => {
 
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
 app.use(express.urlencoded({ extended: false })); // midleware express
-app.use(express.static('styles')); // добавляем стили к которім браузер может получить доступ
+// app.use(express.static('styles')); // добавляем стили к которім браузер может получить доступ
+app.use(express.static(__dirname + '/styles'));
 app.use(methodOverride('_method')); //это промежуточная функция, которая позволяет клиенту выполнять DELETE, PUT, PATCH или другие методы HTTP-запроса, используя скрытое поле формы с именем _method.
 
 app.get('/', (req, res) => {
